@@ -6,7 +6,8 @@
 	// validate the username so that we don't get bad input 
 	function validateUsername($name) {
 		// dummy for now #note
-		return $name;
+		//unclear what exactly needs to be done here, people on stack overflow are like "can't clean input can only clean output", merp
+		return strip_tags($name);
 	}
 	
 	// hash and clean the password entry
@@ -59,18 +60,12 @@
 	
 	// returns true if the email address if a valid cornell netid address
 	function validNetid($addr) {
-		if (preg_match('/[a-zA-Z]{2,}[0-9]+@cornell.edu/', $addr)) {
-			return true;
-		}
-		return false;
+		return preg_match('/[a-zA-Z]{2,}[0-9]+@cornell.edu/', $addr));
 	}
 	
 	// returns true if the name contains only letters
 	function validName($name) {
-		if (preg_match('/[a-zA-Z]+/', $name)) {
-			return true;
-		}
-		return false;
+		return preg_match('/[a-zA-Z]+/', $name);
 	}
 	
 	// adds this person to the list serve, if they're not already in it
