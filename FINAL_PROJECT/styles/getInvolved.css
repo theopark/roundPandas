@@ -1,0 +1,119 @@
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+
+#title {
+    text-align: left;
+}
+
+.navigation {
+    /*border-top-style: solid;*/
+    /*border-width: 2px;*/
+    /*border-color: #B3B3B3;*/
+    float: right;
+    /*position: fixed;*/
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    color: black;
+    margin: 0;
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+    background-image:url('../images/wood.jpg');
+    /*background-repeat:no-repeat;*/
+    margin: 2% 5% 5% 2%;
+
+}
+
+a  {
+    display: block;
+    text-align: center;
+}
+
+li {
+    float: left;
+    clear: right;
+    width: 110px;
+    height: 21px;
+    padding: 27px 5px 27px 5px;
+    background-color: #44F3FC;
+    /*border-style: solid;*/
+    /*border-color: white;*/
+}
+
+#banner {
+    float:left;
+    clear: both;
+}
+
+#mainpic {
+    padding: 30px 30px 30px 30px;
+    clear: both;
+}
+
+#left {
+    float: left; 
+    width: 34%; 
+    margin-left: 33%;
+}
+
+#middle {
+    float: left; 
+    width: 33%; 
+    margin-left: -67%;
+}
+
+
+#right {
+    float: left; 
+    width: 33%;
+}
+
+#wrapper {
+    width: 950px;
+    border: 0px;
+    margin: 0 auto;
+    /*background-color: #EDEDED;*/
+}
+
+.textbox { 
+    width: 375px;
+    height: 175px;
+    border-top-style: solid;
+    border-top-width: 8px;
+    border-top-color: #44F3FC;
+    clear: both;
+    padding: 30px 10px 20px 10px;
+
+
+    background:
+        linear-gradient(-135deg, #333538 5px, transparent 0) 0 5px,
+        linear-gradient(135deg, #333538 5px, #fff 0) 0 5px;
+     
+    background-color: #333538;
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 10px 10px;
+    margin: 20px 3px 20px 3px;
+}
+
+#footer {
+    text-align: center;
+    font-size: small;
+    padding: 30px;
+    clear: both;
+}
+
+h1, p {
+    color: white;
+}
+
+a:link {color:#000000; text-decoration: none;}      /* unvisited link */
+a:visited {color:#000000; text-decoration: none;}  /* visited link */
+a:hover {color:#FF0000; text-decoration: none;}  /* mouse over link */
+a:active {color:#000000; text-decoration: none;}  /* selected link */   
