@@ -7,19 +7,22 @@
 	
 	<head>
 <!-- 		<link rel="stylesheet" type="text/css" href="styles/style.css" /> -->
-		<title>Albums</title>
+		<title>Title Goes Here</title>
 	</head>
 	
 	<body>
-		<h1 id="titleHeader"><a href="displayImages.php">My Web Gallery</a></h1>
+		<?php 
+			require("menu.php");
+			require("helpfulFunctions.php");
+		?>
 		
 		<?php
 			require("db.php"); 
-			$sql = new mysqli("localhost", $username, $password, $db);
-				
+			$sql = new mysqli("localhost", $DB_Username, $DB_Password, $DB_Name);
+
 			$q = "SELECT url FROM finalPics";
 			$query = $sql->query($q);
-			
+
 			print("<div id='albumPhotosDiv'>");
 			while ($result = $query->fetch_assoc()) {
 				print("
