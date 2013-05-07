@@ -1,0 +1,95 @@
+body{
+	background-image:url('http://topwalls.net/wp-content/uploads/2012/11/Wallpaper-Abstract-Circles-Patterns-Lights-Bokeh-Colors-Rays.jpg'); 
+}
+
+#content{
+	margin: 0px auto; 
+	width: 910px; 
+}
+#sidebar{
+	margin: 0px auto; 
+	height: auto; 
+	width: 205px; 
+	float: left; 
+}
+
+#logo{
+	margin: 0px auto; 
+	margin-bottom: 15px; 
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	
+}
+
+#bottomside{
+	height: auto; 
+	width: 200px; 
+	background-color: #fff; 
+	opacity: .80; 
+	text-align: center; 
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#cbody{
+	margin: 0px auto; 
+	height: 1000px; 
+	width: 700px; 
+	float: right; 
+}
+
+#header{
+	height: 70px; 
+	width: 698px; 
+	margin-bottom: 6px; 
+	background-color: #fff; 
+	opacity: .70; 
+	border-top-left-radius: 10px 10px;
+}
+
+.menu{
+	margin: 10px; 
+}
+#center{
+	width: 700px; 
+	height: 700px; 
+	background-color: #002945; 
+	opacity: .9; 
+	border-bottom-right-radius: 5% 5%;
+	text-align: center; 
+}
+
+.high{
+	color: #ff0066; 
+	font-size: 16px; 
+}
+
+#footer{
+	
+}
+
+#calendar{
+	margin: 0px auto; 
+}
+img.image{
+	float: left; 
+	margin: 4px; 
+}
+
+h1{
+	text-align: center;  
+	font-family: "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+h2{
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 10pt; 
+	margin: 4px; 
+}
+
+p{
+	margin: 10px; 
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 10pt; 
+	font-style: bold; 
+}
