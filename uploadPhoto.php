@@ -1,0 +1,95 @@
+<?php
+    session_start();
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    
+    <head>
+        <title>Upload Photos</title>
+        <link rel="stylesheet" href="styles/scrapbook.css" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    </head>
+    
+    <body>
+    <div id= "wrapper">
+    
+        <div id="banner">
+            <a href="index.php"><img src= "images/logo1.jpg" alt= "ACM-W Logo" width="230" height= "75"/></a><br />
+        </div>
+
+        <!-- Navigation bar -->
+        <?php 
+            require("menu.php");
+            require("helpfulFunctions.php");
+            require_once("db.php");
+        ?>
+        
+        <div id="bottomcontent">
+            
+         <h1>Upload Photo</h1>
+         <div id="upload_div">
+          <form enctype="multipart/form-data" action="photos.php" method="POST">
+            <h3> Upload a picture to an album! </h3>
+                <p>Pick an album: 
+            <select name="album_id">
+             <option value="no">Don't upload to an album</option>
+              <?php        
+                
+                $mysql = new mysqli("localhost", $DB_Username, $DB_Password, $DB_Name); 
+
+                if($mysql->errno){
+                  echo "<p> There was a problem connecting to the database! </p>";
+                  exit();
+                }
+                $result = $mysql ->query("SELECT * FROM Album");
+                while($album = $result->fetch_assoc()){
+                print('<option value="'. $album['aid'].'">'. $album["title"] . '</option>');
+              }
+              $mysql->close();
+                ?>
+
+            </select>
+          </p>
+
+        <input type="text" name="caption" placeholder="Caption..."/>
+        Date taken: <input type="date" name="date_taken"/>
+
+        Select a file:<input type="file" name="img" />
+        
+      
+      <input class="btn" name="pic_upload" type="submit" value="Upload!" />
+      </form>
+</div>
+
+                <?php
+                $sql = new mysqli("localhost", $DB_Username, $DB_Password, $DB_Name);
+
+                $q = "SELECT url FROM Photos";
+                $query = $sql->query($q);
+
+                //TO-DO: easiest way is to stick caption in alt field
+                print("<div id='albumPhotosDiv'>");
+                while ($result = $query->fetch_assoc()) {
+                    $alt = "something";
+                    print("
+                        <img class='albumImgImg' alt='". $alt . "' src='images/" . $result["url"] . "' /><br />
+                        <br /><br /><br />
+                    ");
+                }
+                print("</div>");
+                $sql->close();
+
+                ?>
+            </div>
+
+           
+        
+            
+        <div id= "footer">
+            <p>All right reserved.  Made by Team Round Pandas.</p>
+        </div>
+    </div>
+    </body>
+         
+</html>

@@ -21,8 +21,8 @@
 		<!-- Navigation bar -->
 		<?php 
 			require("menu.php");
-			// require("helpfulFunctions.php");
-			// require_once("db.php");
+			require("helpfulFunctions.php");
+			require_once("db.php");
 		?>
 		
 		<div id="bottomcontent">
