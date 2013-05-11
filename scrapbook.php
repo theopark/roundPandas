@@ -32,13 +32,17 @@
 				<?php
 				$sql = new mysqli("localhost", $DB_Username, $DB_Password, $DB_Name);
 
-				$q = "SELECT url FROM Photos";
+				$q = "SELECT (pID, url) FROM Photos";
 				$query = $sql->query($q);
 
 				//TO-DO: easiest way is to stick caption in alt field
 				print("<div id='albumPhotosDiv'>");
 				while ($result = $query->fetch_assoc()) {
-					$alt = "something";
+					$pid = $reult["pID"]
+					$q = "SELECT caption FROM PhotosInAlbum WHERE pID = " . $pID;
+					$query = $sql->query($q)
+					$caption = $query->fetch_assoc();
+					$alt =  $caption["caption"];
 					print("
 						<img class='albumImgImg' alt='". $alt . "' src='images/" . $result["url"] . "' /><br />
 						<br /><br /><br />

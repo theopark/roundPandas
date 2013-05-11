@@ -1,5 +1,74 @@
 <?php
     session_start();
+    
+ //uploads
+    if (isset($_POST["pic_upload"])) {
+      
+    
+  if(isset($_POST["album_id"]) && isset($_POST["date_taken"]) && isset($_POST["caption"]) && isset($_FILES["img"])){ 
+   //This is the directory where images will be saved 
+ $target = "images/"; 
+ 
+ $target = $target . basename( $_FILES['img']['name']); 
+ 
+ //This gets all the other information from the form 
+ $caption=$_POST['caption'];
+ if ($_POST["date_taken"] == "") {
+  
+    $dtaken = date('Y-m-d');  
+  } 
+  else{
+ $dtaken=$_POST['date_taken']; 
+ }
+ $aid = $_POST["album_id"];
+ 
+ 
+ 
+ $query = "INSERT INTO Photos VALUES(NULL, '".$target."','".$dtaken."')";
+ 
+ $result = $mysql ->query($query);
+ 
+ 
+ $result = $mysql ->query("SELECT MAX(pid) FROM Photos"); 
+ $pid = $result ->fetch_row();
+ $pid = $pid[0];
+ 
+ if(!($aid == "no")){
+      if(preg_match("/[A-Za-z]+/", $_POST["caption"])){
+
+ $result = $mysql ->query("INSERT INTO PhotosInAlbum VALUES ('" . $pid ."','". $aid . "','".$caption."')"); 
+ $result = $mysql ->query("UPDATE Album SET dModified = CURRENT_TIMESTAMP, WHERE aid ='" . $aid . "'");
+  }
+  else{
+  echo "Photo needs to have a valid caption, dawg.";
+}
+
+}
+  else {
+    echo "heyyyy";
+  }
+ 
+ 
+ //Writes the photo to the server 
+ if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) 
+ { 
+
+ //Tells you if its all ok 
+ echo "<p>The file ". basename( $_FILES['img']['name']). " has been uploaded<p><br>"; 
+ } 
+ else { 
+ 
+ //Gives an error if its not 
+ echo "Sorry, there was a problem uploading your file."; 
+ }
+}
+
+}
+}
+
+else{
+  echo "<br> <p> You must be logged in to upload photos </p><br>";
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
